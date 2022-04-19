@@ -1,0 +1,6 @@
+val df_householdIncome = spark.read.options(Map("header"->"true")).csv("/fpDatasets/householdIncome.csv")
+val df_dropout = spark.read.options(Map("header"->"true")).csv("/fpDatasets/svi_dropout.csv")
+val df_internet = spark.read.options(Map("header"->"true")).csv("/fpDatasets/internetData.csv")
+val df_codes = spark.read.options(Map("header"->"true")).csv("/fpDatasets/US_FIPS_Codes.csv")
+val df_svi= spark.read.options(Map("header"->"true")).csv("/fpDatasets/se_svi.csv")
+df_svi.join(df_codes,df_svi("COUNTY") === df_codes("COUNTY NAME") && df_svi("STATE") === df_codes("STATE"), "outer").show(true)
