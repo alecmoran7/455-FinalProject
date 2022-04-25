@@ -2,9 +2,10 @@ import org.apache.spark.sql.DataFrameStatFunctions
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-
-// Importing and parsing the dataset 
-val df_imported= spark.read.options(Map("header"->"true")).csv("/fpDatasets/job_1_output_trimmed.csv")
+import org.apache.hadoop.fs._
+val fs = FileSystem.get(sc.hadoopConfiguration)
+val file = fs.globStatus(new Path("/fpOutput/job1/part*"))(0).getPath().toString()
+val df_imported= spark.read.options(Map("header"->"true")).csv(file)
 val df_main= df_imported.selectExpr("STATE","COUNTY","cast(2010_AVERAGE_HOUSEHOLD_INCOME as double) 2010_AVERAGE_HOUSEHOLD_INCOME","cast(RATIO_NO_HS_DIPLOMA as double) RATIO_NO_HS_DIPLOMA","cast(SVI_SCORE_SOCIOECONOMIC as double) SVI_SCORE_SOCIOECONOMIC","cast(AVERAGE_UP_SPEED as double) AVERAGE_UP_SPEED","cast(AVERAGE_DL_SPEED as double) AVERAGE_DL_SPEED")
 df_main.printSchema()
 //------------------------
