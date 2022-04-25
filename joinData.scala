@@ -25,7 +25,8 @@ val ft_2 = ft_1.join(df_dropout_reduced, Seq("STATE", "COUNTY"))
 val ft_3 = ft_2.join(df_svi_reduced, Seq("STATE", "COUNTY"))
 val ft_4 = ft_3.join(df_internet_reduced.withColumnRenamed("STATE","STATE_ABBREV"), ft_3("FIPS STATE") === df_internet_reduced("STATE_NUMBER") && ft_3("FIPS COUNTY") === df_internet_reduced("COUNTY_NUMBER"), "outer")
 val ft_5 = ft_4.drop("FIPS STATE").drop("FIPS COUNTY").drop("STATE_NUMBER").drop("COUNTY_NUMBER").drop("STATE_ABBREV")
-ft_5.show(true)
-ft_5.write.csv("/fpOutput/allData/")
+val ft_6 = ft_5.na.drop("any")
+ft_6.show(true)
+ft_6.write.option("header",true).csv("/fpOutput/job1/")
 
 
