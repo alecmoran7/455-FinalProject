@@ -5,16 +5,16 @@
 
 Create a folder for the datasets and the output files using the following commands:
 
-$ (HADOOP_HOME) -mkdir /fpDatasets
-$ (HADOOP_HOME) -mkdir /fpOutput
+$HADOOP_HOME/bin/hadoop fs -mkdir /fpDatasets
+$HADOOP_HOME/bin/hadoop fs -mkdir /fpOutput
 
 Upload the files to the /fpDatasets hdfs folder using the commands:
 
-$ (HADOOP_HOME) -put ./datasets/householdIncome.csv /fpDatasets/
-$ (HADOOP_HOME) -put ./datasets/internetData.csv /fpDatasets/
-$ (HADOOP_HOME) -put ./datasets/se_svi.csv /fpDatasets/
-$ (HADOOP_HOME) -put ./datasets/svi_dropout.csv /fpDatasets/
-$ (HADOOP_HOME) -put ./datasets/US_FIPS_Codes.csv /fpDatasets/
+$HADOOP_HOME/bin/hadoop fs -put ./datasets/householdIncome.csv /fpDatasets/
+$HADOOP_HOME/bin/hadoop fs -put ./datasets/internetData.csv /fpDatasets/
+$HADOOP_HOME/bin/hadoop fs -put ./datasets/se_svi.csv /fpDatasets/
+$HADOOP_HOME/bin/hadoop fs -put ./datasets/svi_dropout.csv /fpDatasets/
+$HADOOP_HOME/bin/hadoop fs -put ./datasets/US_FIPS_Codes.csv /fpDatasets/
 
 
 ## Running the jobs:
