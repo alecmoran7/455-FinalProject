@@ -59,3 +59,12 @@ val r2 = re.evaluate(lrPredictions)
 re.setMetricName("mae")
 val mae = re.evaluate(lrPredictions)
 
+// Summarize the model over training set
+val trainingSummary = lrModel.summary
+println(s"numIterations: ${trainingSummary.totalIterations}")
+println(s"objectiveHistory: [${trainingSummary.objectiveHistory.mkString(",")}]")
+trainingSummary.residuals.show()
+println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
+println(s"r2: ${trainingSummary.r2}")
+
+
