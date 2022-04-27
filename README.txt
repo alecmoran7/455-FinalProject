@@ -25,3 +25,12 @@ $ /path/to/sparkshell < joinData.scala
 Running job 2
 $ /path/to/sparkshell < analyzeData.scala
 
+
+## Datasets:
+US FIPS Codes: https://raw.githubusercontent.com/alecmoran7/455-FinalProject/main/datasets/US_FIPS_Codes.csv
+Household Income: https://raw.githubusercontent.com/alecmoran7/455-FinalProject/main/datasets/householdIncome.csv
+Socioeconomic Social Vulnerability Index: https://raw.githubusercontent.com/alecmoran7/455-FinalProject/main/datasets/se_svi.csv
+SVI Dropout: https://raw.githubusercontent.com/alecmoran7/455-FinalProject/main/datasets/svi_dropout.csv
+Internet Data: https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477
+                OR 
+                https://github.com/alecmoran7/455-FinalProject/blob/main/datasets/internetData.csv
